@@ -34,15 +34,9 @@ env:
   TZ: Asia/Shanghai
 
 jobs:
-
   build_openwrt:
-
     name: Build OpenWrt Firmware
-
-    runs-on: ubuntu-latest
-
-
-		
+    runs-on: ubuntu-latest		
     steps:
       - name: Space cleanup and Initialization environment
         uses: actions/checkout@main
@@ -60,10 +54,8 @@ jobs:
           sudo -E apt -y autoremove --purge
           sudo -E apt clean
           sudo -E timedatectl set-timezone "$TZ"
-		  sudo mkdir -p /workdir
-          sudo chown $USER:$GROUPS /workdir
-		  
-		  
+	  sudo mkdir -p /workdir && sudo chown $USER:$GROUPS /workdir
+
 
     - name: Clone source code
       working-directory: /workdir
