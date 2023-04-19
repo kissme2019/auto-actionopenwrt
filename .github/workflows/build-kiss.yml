@@ -38,10 +38,11 @@ jobs:
     name: Build OpenWrt Firmware
     runs-on: ubuntu-latest		
     steps:
-      - name: Space cleanup and Initialization environment
+      - name: Space cleanup
         uses: actions/checkout@main
+      - name: Initialization environment
         env:
-          DEBIAN_FRONTEND: noninteractive
+          DEBIAN_FRONTEND: noninteractive	  
         run: |
           docker rmi `docker images -q`
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android
