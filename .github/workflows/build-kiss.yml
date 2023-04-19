@@ -40,9 +40,10 @@ jobs:
     steps:
       - name: Space cleanup
         uses: actions/checkout@main
+	
       - name: Initialization environment
         env:
-          DEBIAN_FRONTEND: noninteractive	  
+          DEBIAN_FRONTEND: noninteractive
         run: |
           docker rmi `docker images -q`
           sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android
